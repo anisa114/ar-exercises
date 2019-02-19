@@ -6,6 +6,8 @@ puts "----------"
 
 class Store <  ActiveRecord::Base 
     has_many :employees
+    validates :name, length: { minimum: 3 }
+    validates :annual_revenue numericality: { greater_than_or_equal_to: true }
 end
 
 @store_1 = Store.new
